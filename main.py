@@ -20,9 +20,9 @@ Vehicles, Requests, Nodes, RemovedPassengers = generate_data(nb_passengers, nb_t
 
 G = createGraphInstance(Nodes, min_distance, max_distance, min_time, max_time, min_degree)
 
-StratingSol = GenerateStartingSolution(Requests, Vehicles)
+StartingSol = GenerateStartingSolution(Requests, Vehicles)
 
-path_vector = HopSequences(Vehicles, Requests, StratingSol, G)
+path_vector = HopSequences(Vehicles, Requests, StartingSol, G)
 
 
 print(cost_function(path_vector, RemovedPassengers, G, Requests))
@@ -37,7 +37,7 @@ final_temp = 0.1
 alpha = 0.95
 iterations = 10
 
-optimized_sol, optimized_cost, costs_over_time = SimAnAlg.simulated_annealing_adaptive(StratingSol, G, Vehicles, Requests, RemovedPassengers, initial_temp, final_temp, alpha, iterations)
+optimized_sol, optimized_cost, costs_over_time = SimAnAlg.simulated_annealing_adaptive(StartingSol, G, Vehicles, Requests, RemovedPassengers, initial_temp, final_temp, alpha, iterations)
 
 print("Optimized Solution:", optimized_sol)
 print("Optimized Cost:", optimized_cost)
