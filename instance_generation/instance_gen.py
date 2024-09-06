@@ -1,6 +1,7 @@
 import random
 import networkx as nx
 import matplotlib.pyplot as plt
+import numpy as np
 
 def generate_data(requests_num, vehicle_num):
     Requests = []
